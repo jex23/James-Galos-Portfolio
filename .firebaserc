@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "james-galos-portfolio",
+    "Continous": "james-galos-portfolio"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
