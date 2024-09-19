@@ -142,7 +142,7 @@ const AboutSection: React.FC = () => {
               {/* Data Analysis */}
               <div className="flex-1 min-w-[180px] mb-8">
                 <h4 className="text-xl font-semibold flex items-center">
-                  <FaChartBar className="mr-2" /> Web development:
+                  <FaChartBar className="mr-2" /> Web:
                 </h4>
                 <ul className="list-disc list-inside">
                   <li>React</li>
@@ -164,7 +164,7 @@ const AboutSection: React.FC = () => {
                   <li>GraphQL</li>
                   <li>Unity</li>
                   <li>Agile</li>
-                  <li>Scrum</li>
+                  <li>Scrum</li>cls
                 </ul>
               </div>
             </div>
