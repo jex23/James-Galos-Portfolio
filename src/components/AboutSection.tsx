@@ -142,10 +142,10 @@ const AboutSection: React.FC = () => {
               {/* Data Analysis */}
               <div className="flex-1 min-w-[180px] mb-8">
                 <h4 className="text-xl font-semibold flex items-center">
-                  <FaChartBar className="mr-2" /> Data Analysis:
+                  <FaChartBar className="mr-2" /> Web development:
                 </h4>
                 <ul className="list-disc list-inside">
-                  <li>Pandas</li>
+                  <li>React</li>
                   <li>NumPy</li>
                   <li>Matplotlib</li>
                 </ul>
