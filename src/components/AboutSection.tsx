@@ -57,7 +57,7 @@ const AboutSection: React.FC = () => {
               <div className="mb-4">
                 <h3 className="text-2xl font-bold mb-2">About Me</h3> {/* Changed "Summary" to "About Me" */}
                 <p className="mb-2">
-                  Hi, I’m James F. Galos, a passionate software developer experienced in Flutter, Firebase, and React. I thrive on solving complex problems and delivering user-centric solutions.
+                  Hi, I’m James F. Galos, a passionate software developer s s s s sexperienced in Flutter, Firebase, and React. I thrive on solving complex problems and delivering user-centric solutions.
                 </p>
                 <p>
                   My journey in software development started with a fascination for technology and has evolved into a career focused on building impactful web and mobile applications. I am committed to continuous learning and improvement in the ever-evolving tech landscape. When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying some downtime with a good book or game.
