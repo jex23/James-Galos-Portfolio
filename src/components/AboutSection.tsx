@@ -30,7 +30,7 @@ const AboutSection: React.FC = () => {
             {/* Image and Contact Details */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/3">
               <motion.img
-                src="src/assets/2x2.png" // Replace with your image URL
+                src="https://i.ibb.co/0BpdJws/2x2.png" // Replace with your image URL
                 alt="James F. Galos"
                 className="rounded-full border-4 border-gray-800 shadow-lg w-32 h-32 md:w-40 md:h-40"
                 initial={{ opacity: 0, scale: 0.8 }}
