@@ -1,3 +1,4 @@
+// src/pages/Upload.tsx
 import React, { useState } from 'react';
 
 const Upload: React.FC = () => {
@@ -14,19 +15,18 @@ const Upload: React.FC = () => {
       return;
     }
 
-    // Here you would typically send the file to your server
     const formData = new FormData();
     formData.append('file', selectedFile);
 
     try {
-      const response = await fetch('/api/upload', { // Adjust the endpoint as needed
+      const response = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
       });
 
       if (response.ok) {
         alert('File uploaded successfully!');
-        setSelectedFile(null); // Reset the file input
+        setSelectedFile(null);
       } else {
         alert('File upload failed. Please try again.');
       }

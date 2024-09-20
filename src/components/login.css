@@ -1,0 +1,18 @@
+/* login.css */
+
+.animated-background {
+    background: linear-gradient(270deg, #ff6b6b, #f4f4f4, #6bc1ff, #b8ff6b);
+    background-size: 600% 600%;
+    animation: gradientAnimation 10s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  

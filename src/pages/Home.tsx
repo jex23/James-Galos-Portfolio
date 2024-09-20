@@ -8,6 +8,8 @@ import ProjectsSection from '../components/ProjectsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
+
+
 const Home: React.FC = () => {
   const navigate = useNavigate(); // Initialize useNavigate
 
@@ -15,7 +17,7 @@ const Home: React.FC = () => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.shiftKey && event.key === 'U') {
         event.preventDefault(); // Prevent default browser behavior
-        navigate('/upload'); // Navigate to Upload page
+        navigate('/login'); // Navigate to Upload page
       }
     };
 
