@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../firebaseConfig'; // Adjusted import
+import { auth } from '../firebaseConfig'; // Use the auth object
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'; // Import icons for showing/hiding password
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
