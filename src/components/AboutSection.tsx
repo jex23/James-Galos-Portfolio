@@ -1,7 +1,6 @@
 import React from 'react';
 import { Parallax } from 'react-parallax';
 import { motion } from 'framer-motion';
-import { FaPython, FaDatabase, FaMobileAlt, FaChartBar, FaTools } from 'react-icons/fa';
 
 const AboutSection: React.FC = () => {
   return (
@@ -15,7 +14,7 @@ const AboutSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-600 to-red-500 opacity-70"></div>
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center px-4 min-h-screen pt-20"> {/* Added pt-20 for spacing */}
+        <div className="relative z-10 flex flex-col items-center justify-center px-4 min-h-screen pt-20">
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-4 text-white"
             initial={{ opacity: 0, y: -50 }}
@@ -52,12 +51,12 @@ const AboutSection: React.FC = () => {
             </div>
 
             {/* Summary and Education */}
-            <div className="w-full md:w-4/4 text-lg text-white"> {/* Adjusted width */}
+            <div className="w-full md:w-4/4 text-lg text-white">
               {/* Summary */}
               <div className="mb-4">
-                <h3 className="text-2xl font-bold mb-2">About Me</h3> {/* Changed "Summary" to "About Me" */}
+                <h3 className="text-2xl font-bold mb-2">About Me</h3>
                 <p className="mb-2">
-                  Hi, I’m James F. Galos, a passionate software developer s s s s sexperienced in Flutter, Firebase, and React. I thrive on solving complex problems and delivering user-centric solutions.
+                  Hi, I’m James F. Galos, a passionate software developer experienced in Flutter, Firebase, and React. I thrive on solving complex problems and delivering user-centric solutions.
                 </p>
                 <p>
                   My journey in software development started with a fascination for technology and has evolved into a career focused on building impactful web and mobile applications. I am committed to continuous learning and improvement in the ever-evolving tech landscape. When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying some downtime with a good book or game.
@@ -77,8 +76,6 @@ const AboutSection: React.FC = () => {
               </div>
             </div>
           </div>
-
-
         </div>
       </Parallax>
     </section>
