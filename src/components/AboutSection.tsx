@@ -14,9 +14,9 @@ const AboutSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-600 to-red-500 opacity-70"></div>
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center px-4 min-h-screen pt-20">
+        <div className="relative z-10 px-4 min-h-screen pt-20 md:pl-16">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4 text-white"
+            className="text-4xl md:text-5xl font-bold mb-4 text-white text-center"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -24,10 +24,10 @@ const AboutSection: React.FC = () => {
             About Me
           </motion.h2>
 
-          {/* Layout for Image, Contact Details, Summary, and Education */}
-          <div className="flex flex-col md:flex-row items-start justify-between space-y-4 md:space-y-0 md:space-x-6 w-full">
+          {/* Grid Layout for Image/Contact Details and Summary/Education */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {/* Image and Contact Details */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/3">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left md:col-span-1">
               <motion.img
                 src="https://i.ibb.co/0BpdJws/2x2.png" // Replace with your image URL
                 alt="James F. Galos"
@@ -51,7 +51,7 @@ const AboutSection: React.FC = () => {
             </div>
 
             {/* Summary and Education */}
-            <div className="w-full md:w-4/4 text-lg text-white">
+            <div className="md:col-span-3 text-lg text-white">
               {/* Summary */}
               <div className="mb-4">
                 <h3 className="text-2xl font-bold mb-2">About Me</h3>
