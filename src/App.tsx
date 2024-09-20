@@ -5,9 +5,10 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebaseConfig';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './components/Login';
-import Upload from './components/Upload'; // Import the Upload component
+import Upload from './components/Upload';
 import Home from './pages/Home';
 import About from './pages/About';
+import ProjectDetails from './components/ProjectDetails'; // Import ProjectDetails component
 
 const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = React.useState<boolean | null>(null);
@@ -21,7 +22,7 @@ const App: React.FC = () => {
   }, []);
 
   if (isAuthenticated === null) {
-    return <div>Loading...</div>; // Loading state
+    return <div>Loading...</div>;
   }
 
   return (
@@ -38,6 +39,7 @@ const App: React.FC = () => {
             </ProtectedRoute>
           } 
         />
+        <Route path="/projects/:projectId" element={<ProjectDetails />} /> {/* New route for project details */}
       </Routes>
     </Router>
   );

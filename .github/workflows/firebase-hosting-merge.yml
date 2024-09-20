@@ -15,6 +15,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JAMES_GALOS_PORTFOLIO }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JAMES_PORTFOLIO_WEBSITE_A702B }}
           channelId: live
-          projectId: james-galos-portfolio
+          projectId: james-portfolio-website-a702b

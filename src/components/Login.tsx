@@ -119,7 +119,7 @@ const Login: React.FC = () => {
           </button>
         </form>
         <div className="mt-6 text-center">
-          <a href="#" className="text-blue-300 hover:text-blue-400 transition duration-300">Forgot Password?</a>
+          <a href="/" className="text-blue-300 hover:text-blue-400 transition duration-300">Back to Home</a>
         </div>
       </div>
     </div>
