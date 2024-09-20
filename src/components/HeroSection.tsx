@@ -75,7 +75,7 @@ const HeroSection: React.FC = () => {
       >
         {/* Profile Image with enhanced animation */}
         <motion.img
-          src="src/assets/2x2.png" // Replace with your image URL
+          src="https://i.ibb.co/0BpdJws/2x2.png" // Replace with your image URL
           alt="Profile Picture"
           className="rounded-full mb-6 w-40 h-40 object-cover mx-auto"
           initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
