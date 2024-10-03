@@ -105,9 +105,7 @@ const ProjectDetails: React.FC = () => {
           <button
             onClick={handlePreviousImage}
             aria-label="Previous Image"
-            className={`p-2 ${
-              currentImageIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
-            }`}
+            className={`p-2 ${currentImageIndex === 0 ? "opacity-50 cursor-not-allowed" : ""}`}
             disabled={currentImageIndex === 0}
           >
             <FaArrowLeft className="text-white" />
@@ -115,7 +113,7 @@ const ProjectDetails: React.FC = () => {
           <motion.img
             src={project.imageUrls[currentImageIndex]}
             alt={project.title}
-            className="max-w-full h-[50vh] object-cover rounded-md shadow-lg mx-4 cursor-pointer"
+            className="w-auto max-h-[50vh] object-contain rounded-md shadow-lg mx-4 cursor-pointer" // Changed to 'object-contain' and used 'max-h'
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             onClick={openFullScreen} // Open full-screen on main image click
@@ -123,11 +121,7 @@ const ProjectDetails: React.FC = () => {
           <button
             onClick={handleNextImage}
             aria-label="Next Image"
-            className={`p-2 ${
-              currentImageIndex === project.imageUrls.length - 1
-                ? "opacity-50 cursor-not-allowed"
-                : ""
-            }`}
+            className={`p-2 ${currentImageIndex === project.imageUrls.length - 1 ? "opacity-50 cursor-not-allowed" : ""}`}
             disabled={currentImageIndex === project.imageUrls.length - 1}
           >
             <FaArrowRight className="text-white" />
@@ -141,9 +135,7 @@ const ProjectDetails: React.FC = () => {
               key={index}
               src={url}
               alt={project.title}
-              className={`h-20 w-32 object-cover rounded-md cursor-pointer ${
-                index === currentImageIndex ? "border-2 border-blue-500" : ""
-              }`}
+              className={`h-20 w-32 object-cover rounded-md cursor-pointer ${index === currentImageIndex ? "border-2 border-blue-500" : ""}`}
               onClick={() => {
                 setCurrentImageIndex(index);
                 openFullScreen(); // Open full-screen on gallery image click
@@ -180,7 +172,7 @@ const ProjectDetails: React.FC = () => {
             <motion.img
               src={project.imageUrls[currentImageIndex]}
               alt={project.title}
-              className="max-w-full h-[70vh] object-cover"
+              className="w-full max-h-[90vh] object-contain" // Updated for responsive design
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             />
