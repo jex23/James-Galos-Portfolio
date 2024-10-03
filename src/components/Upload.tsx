@@ -262,19 +262,19 @@ const Upload: React.FC = () => {
             />
             <button
               onClick={previousImage}
-              className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1"
+              className="absolute top-1/2 left-0 transform -translate-y-1/2 text-white text-2xl"
             >
               &lt;
             </button>
             <button
               onClick={nextImage}
-              className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-2 py-1"
+              className="absolute top-1/2 right-0 transform -translate-y-1/2 text-white text-2xl"
             >
               &gt;
             </button>
             <button
               onClick={closeModal}
-              className="absolute top-1 right-2 bg-red-500 text-white rounded-full p-1"
+              className="absolute top-2 right-2 text-white text-2xl"
             >
               ✖
             </button>

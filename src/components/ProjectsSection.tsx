@@ -1,4 +1,3 @@
-// ProjectsSection.tsx
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { db } from '../firebaseConfig';
@@ -9,34 +8,22 @@ import { Link } from 'react-router-dom';
 const ProjectsSection: React.FC = () => {
   const [projects, setProjects] = useState<any[]>([]);
   const [currentStartIndex, setCurrentStartIndex] = useState(0);
-  const [projectsPerPage, setProjectsPerPage] = useState(4);
-
-  const updateProjectsPerPage = () => {
-    const width = window.innerWidth;
-    if (width < 640) {
-      setProjectsPerPage(2);
-    } else if (width >= 640 && width < 1024) {
-      setProjectsPerPage(4);
-    } else {
-      setProjectsPerPage(8);
-    }
-  };
+  const projectsPerPage = 6; // Show 6 cards per page
 
   useEffect(() => {
-    updateProjectsPerPage();
-    window.addEventListener('resize', updateProjectsPerPage);
-    return () => window.removeEventListener('resize', updateProjectsPerPage);
-  }, []);
+    const fetchProjects = async () => {
+      const querySnapshot = await getDocs(collection(db, 'passengerDetails'));
+      const fetchedProjects = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setProjects(fetchedProjects);
+    };
 
-  const fetchProjects = async () => {
-    const querySnapshot = await getDocs(collection(db, 'passengerDetails'));
-    const fetchedProjects = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-    setProjects(fetchedProjects);
-  };
-
-  useEffect(() => {
     fetchProjects();
   }, []);
+
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
 
   const handleNext = () => {
     if (currentStartIndex + projectsPerPage < projects.length) {
@@ -50,10 +37,20 @@ const ProjectsSection: React.FC = () => {
     }
   };
 
-  const displayedProjects = projects.slice(currentStartIndex, currentStartIndex + projectsPerPage);
+  const handlePageClick = (index: number) => {
+    setCurrentStartIndex(index * projectsPerPage);
+  };
+
+  const displayedProjects = projects.slice(
+    currentStartIndex,
+    currentStartIndex + projectsPerPage
+  );
 
   return (
-    <section id="projects" className="h-screen flex items-center justify-center text-center relative overflow-hidden">
+    <section
+      id="projects"
+      className="flex items-center justify-center text-center relative overflow-hidden min-h-screen"
+    >
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -68,6 +65,21 @@ const ProjectsSection: React.FC = () => {
       <div className="relative z-10 pt-20 pb-5 w-full flex flex-col items-center justify-center">
         <h2 className="text-4xl font-bold text-white mb-8">My Projects</h2>
 
+        {/* Pagination Circles */}
+        <div className="flex justify-center mb-4">
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index}
+              onClick={() => handlePageClick(index)}
+              className={`w-3 h-3 mx-1 rounded-full ${
+                currentStartIndex / projectsPerPage === index
+                  ? 'bg-white'
+                  : 'bg-gray-400'
+              }`}
+            />
+          ))}
+        </div>
+
         <div className="w-full flex items-center justify-center">
           {currentStartIndex > 0 && (
             <button
@@ -79,25 +91,35 @@ const ProjectsSection: React.FC = () => {
             </button>
           )}
 
-          <div className="mx-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
+          <div className="w-full mx-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayedProjects.map((project) => (
               <Link to={`/projects/${project.id}`} key={project.id}>
                 <motion.div
-                  className="bg-white bg-opacity-10 p-6 rounded-lg shadow-lg"
+                  className="bg-white bg-opacity-10 p-6 rounded-lg shadow-lg h-80 flex flex-col"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
                   {project.imageUrls && project.imageUrls.length > 0 && (
-                    <img
-                      src={project.imageUrls[0]}
-                      alt={project.title}
-                      className="w-full h-40 object-cover rounded-md mb-4"
-                    />
+                    <div
+                      className="w-full mb-4 flex justify-center items-center"
+                      style={{ height: '150px' }}
+                    >
+                      <img
+                        src={project.imageUrls[0]}
+                        alt={project.title}
+                        className="max-w-full max-h-full object-contain rounded-md"
+                      />
+                    </div>
                   )}
 
-                  <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    {project.title}
+                  </h3>
 
-                  <p className="text-gray-200 line-clamp-3">{project.projectDetails}</p>
+                  {/* Display project details with limited height and ellipsis */}
+                  <p className="text-gray-200 overflow-hidden overflow-ellipsis line-clamp-2">
+                    {project.projectDetails}
+                  </p>
                 </motion.div>
               </Link>
             ))}
@@ -126,6 +148,14 @@ const ProjectsSection: React.FC = () => {
           100% {
             background-position: 0% 0%;
           }
+        }
+
+        /* Added styles for line clamping */
+        .line-clamp-2 {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2; /* Number of lines to show */
+          overflow: hidden;
         }
       `}</style>
     </section>
